@@ -24,3 +24,22 @@
 # edit aulareceitas/settings.py -> STATIC_ROOT
 # edit aulareceitas/settings.py -> STATICFILES_DIRS = [ os.path.join(BASE_DIR, 'alurareceita/static'), ]
 # run python manage.py collectstatic -> generate ./static
+
+# add receitas/templates/base.html use {% load static %} and on body uses {% block content %} {% endblock %}
+# add receitas/templates/index.html -> index.html {% extends 'base.html' %} {% load static %} {% block content%}
+# add receitas/templates/partials -> creating header.html, footer.html use header and footer from index.html
+# add receitas/templatesindex.html uses {% include 'partials/header.html' %} {% include 'partials/footer.html' %}
+
+
+* sudo apt-get install postgresql
+# The following additional packages will be installed:
+#  libpq5 postgresql-10 postgresql-client-10 postgresql-client-common postgresql-common sysstat
+# Suggested packages:
+#  postgresql-doc locales-all postgresql-doc-10 libjson-perl isag
+# The following NEW packages will be installed:
+#  libpq5 postgresql postgresql-10 postgresql-client-10 postgresql-client-common postgresql-common sysstat
+# some hints here: https://tecadmin.net/install-postgresql-server-on-ubuntu/
+# to enter the postgresql menu:
+* sudo su - postgres
+# using psql, the command-line interface to PostgreSQL.
+* psql

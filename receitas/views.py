@@ -3,8 +3,19 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-     # return HttpResponse('<h1>Receitas</h1>')
-     return render(request, 'index.html')
+
+     receitas = {
+          1: "Lasanha",
+          2: "Sorvete",
+          3: "Bolo de Cenoura",
+          4: "Bolo Chocolate"
+     }
+     
+     dados = {
+          "nome_das_receitas" :  receitas,
+     }
+
+     return render(request, 'index.html', context=dados)
 
 def receita(request):
      return render(request, 'receita.html')
