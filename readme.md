@@ -2,24 +2,39 @@ Project of the Django2 Introduction from [Alura Courses](https://www.alura.com.b
 This course is presented on a MacOS but i followed it using a ubuntu 18.04. All the adaptation are listed on the Install section.
 
 ---
-### Install
+### Install and Start your own Project
+
+#### Create the repository project
+```
+mkdir DjangoProject
+cd DjangoProject
+```
+
 #### Install python and venv
 ```
 sudo apt install python3.7 
 sudo apt install python3.7 python3-venv python3.7-venv
 python3.7 -m venv py37-venv
-source ./py37-venv/bin/activate
 ```
+To activate the virtual environment run: `source ./py37-venv/bin/activate`
 
-#### Install Django2 latest
+For any package we will install we should use the virtual environment
+
+#### Install Django latest
 ```
 pip install django
 pip install --upgrade pip
-pip freeze to check the version
 ```
-* django-admin help
-* django-admin startproject alurareceita .
-* python manage.py help
+To check the version of packages installed run:  `pip freeze`
+
+To check thecommands django allows run: `django-admin help`
+
+To start the project the django project run: `django-admin startproject <project_name> <path_to_folder>` \
+but in our case we created a project with name "alurareceita" on the current DjangoProject folder with the command: `django-admin startproject alurareceita . `
+
+To check all the possible commands of the django project run: `python manage.py help` \
+but to run the project we can use: `python manage.py runserver`
+
 
 #### CREATING A NEW APP WITH STATIC FILES: 
 #### run python manage.py startapp receitas
@@ -40,6 +55,8 @@ pip freeze to check the version
 #### add receitas/templatesindex.html uses {% include 'partials/header.html' %} {% include 'partials/footer.html' %}
 
 
+#### Installing Postgresql on Ubuntu 18.04
+
 * sudo apt-get install postgresql
 #### The following additional packages will be installed:
 ####  libpq5 postgresql-10 postgresql-client-10 postgresql-client-common postgresql-common sysstat
@@ -57,12 +74,17 @@ pip freeze to check the version
 * su - your_username
 * createdb my_db
 
+
+### Installing python-dev for psutil problems
+There is a [problem](https://github.com/giampaolo/psutil/issues/1143) with psutil that we will need the python-dev version to install its binaries, so we need the python-dev version of ourvirtual env. this will avoid problems on the installation of **pgAdmin4** and **psycopg2**
+
+```
+sudo apt-get install python3.7-dev
+```
+
+
 #### Installing pgAdmin4
 #### Install for https://www.pgadmin.org/download/pgadmin-4-python-wheel/ I download the pgadmin4-4.18-py2.py3-none-any.whl
-
-#### There is a problem with psutil that we will need the python-dev version to install its binaries, so we need the python-dev version of ourvirtual env: https://github.com/giampaolo/psutil/issues/1143
-
-* sudo apt-get install python3.7-dev
 * pip3 install ./pgadmin4-4.18-py2.py3-none-any.whl 
 * nano py37-venv/lib/python3.7/site-packages/pgadmin4/config_local.py
 * python py37-venv/lib/python3.7/site-packages/pgadmin4/pgAdmin4.py 
